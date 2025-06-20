@@ -1,0 +1,1 @@
+python -m agent_lesson2.parser -s "I want to go to India in August, for about 2 weeks (14 days). My budget is \$200 per day. Show me 5 options."
