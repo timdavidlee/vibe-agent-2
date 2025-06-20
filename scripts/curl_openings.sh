@@ -1,0 +1,1 @@
+curl -X GET "http://localhost:9009/api/trip/openings/countries" | jq

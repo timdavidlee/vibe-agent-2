@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  vrs-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: vrs
+    container_name: vacay-ressy-service
+    ports:
+      - "9009:9009"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - VACATION_API_BASE_URL=http://localhost:9009
+      - PYTHONPATH=/app
+      - PYTHONUNBUFFERED=1
+      - RELOAD=true
+    volumes:
+      - .:/app
+      - /app/.venv
+      - /app/__pycache__
+      - /app/*/__pycache__
+    command: uvicorn webservice.app:app --host 0.0.0.0 --port 9009 --reload --reload-dir /app --reload-delay 1
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9009/healthcheck"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s 

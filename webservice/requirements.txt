@@ -1,0 +1,10 @@
+pydantic
+ruff
+fastapi
+fastapi[standard]
+langgraph
+langchain_anthropic
+pandas
+numpy
+loguru
+uvicorn[standard]

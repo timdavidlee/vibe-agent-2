@@ -1,0 +1,1 @@
+python -m agent_lesson1.parser -s "I want to go to Japan in August, maybe from the 10th to the 20th. My budget is \$200 per day. Show me 5 options."
